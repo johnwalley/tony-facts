@@ -5,6 +5,7 @@ import './App.css';
 function App() {
   return (
     <>
+      <h1 className="title">Tony Facts</h1>
       <Deck />
       <a
         className="submit"
