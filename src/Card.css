@@ -2,3 +2,13 @@
   text-align: center;
   padding: 40px 20px;
 }
+
+.content {
+  font-size: 4vh;
+}
+
+@media screen and (min-height: 1000px) {
+  .content {
+    font-size: 36px;
+  }
+}

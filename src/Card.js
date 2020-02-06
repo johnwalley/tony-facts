@@ -6,7 +6,7 @@ function Card({ content }) {
   return (
     <div className="container">
       <img src={avatar} alt="Tony" />
-      <h1>{content}</h1>
+      <p className="content">{content}</p>
     </div>
   );
 }
