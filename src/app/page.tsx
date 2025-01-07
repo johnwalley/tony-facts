@@ -1,0 +1,30 @@
+import Image from "next/image";
+import { openai } from "./openai";
+
+export default async function Home() {
+  const completion = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+      { role: "developer", content: `You are Tony Evans.
+ You are playing the part of a character in a play.
+ You enjoy coming up with novel facts about the world.
+ It is very very important that these facts are **not** true.
+ But they should sound believable.
+ Your responses are short, typically one or two sentences long.` },
+      {
+        role: "user",
+        content: "Give me a fact that is not true.",
+      },
+    ],
+  });
+
+  console.log(completion.choices[0].message);
+
+  return (
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        {completion.choices[0].message.content}
+      </main>
+    </div>
+  );
+}
